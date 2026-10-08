@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encurtador WhatsApp | Coopermax</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --card:#14141c;
+    --line:#262633;
+    --text:#f2f2f5;
+    --muted:#9a9aab;
+    --blue:#1e6bff;
+    --blue2:#4d8dff;
+    --green:#25d366;
+    --red:#ff5a5a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:520px;margin:0 auto;padding:28px 16px 40px}
+  header{text-align:center;margin-bottom:22px}
+  .brand{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:10px}
+  h1{font-size:28px;line-height:1.15;margin:0 0 8px;font-weight:800}
+  h1 span{color:var(--green)}
+  h2{font-size:16px;margin:0 0 12px}
+  .sub{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+  .card > label:first-child{margin-top:0}
+  input,textarea{width:100%;background:#0e0e15;border:1px solid var(--line);color:var(--text);
+    border-radius:10px;padding:12px;font-size:16px;font-family:inherit;outline:none}
+  input:focus,textarea:focus{border-color:var(--blue)}
+  textarea{min-height:90px;resize:vertical}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.45;word-break:break-all}
+  .slug-row{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0e0e15}
+  .slug-row .prefix{padding:12px 0 12px 12px;color:var(--muted);font-size:13px;white-space:nowrap;display:flex;align-items:center;max-width:55%;overflow:hidden;text-overflow:ellipsis}
+  .slug-row input{border:0;border-radius:0;padding-left:2px;min-width:0}
+  .btn{display:block;width:100%;margin-top:16px;padding:14px;border:0;border-radius:12px;
+    background:var(--blue);color:#fff;font-size:15px;font-weight:700;cursor:pointer;text-align:center;font-family:inherit}
+  .btn:active{transform:scale(.99)}
+  .btn.secondary{background:#1f1f2b;border:1px solid var(--line)}
+  .btn.ghost{background:transparent;border:1px dashed var(--line);color:var(--blue2)}
+  .result{display:none}
+  .result.show{display:block}
+  .linkbox{display:flex;align-items:center;gap:8px;background:#0e0e15;border:1px solid var(--line);border-radius:10px;padding:10px 10px 10px 12px}
+  .linkbox .val{flex:1;font-size:14px;word-break:break-all;color:var(--green);font-weight:600}
+  .copybtn,.iconbtn{background:#1f1f2b;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:inherit}
+  .iconbtn.del{color:var(--red)}
+  .qr{display:flex;justify-content:center;margin:16px 0}
+  .qr img,.qr canvas{background:#fff;padding:10px;border-radius:12px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .item{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+  .item:first-of-type{border-top:0}
+  .info{flex:1;min-width:0}
+  .name{font-weight:700;font-size:14px}
+  .u{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .acts{display:flex;gap:6px}
+  .empty{color:var(--muted);font-size:13px}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:24px;letter-spacing:.04em}
+  .redir{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 16px}
+  .redir .btn{margin-top:20px}
+  .spinner{width:44px;height:44px;border:4px solid var(--line);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:18px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1f1f2b;border:1px solid var(--line);
+    color:var(--text);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="/links.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
